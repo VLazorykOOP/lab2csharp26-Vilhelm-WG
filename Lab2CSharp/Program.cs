@@ -23,28 +23,21 @@
 
                 switch (choice)
                 {
-                    case "6":
-                        Task_6.Run();
-                        break;
-        
-                    case "5":
-                        Task_5.Run();
-                        break;
-        
+
                     case "4":
                         Task_4.Run();
                         break;
-        
+
                     case "3":
                         Task_3.Run();
                         break;
-        
+
                     case "2":
                         Task_2.Run();
                         break;
-        
+
                     case "1":
-                        Task1.Run();
+                        Task_1.Run();
                         break;
 
                     case "0":
@@ -54,6 +47,7 @@
                         Console.WriteLine("Невірний вибір. Спробуйте ще раз.");
                         break;
                 }
+            }
         }
     }
 }
