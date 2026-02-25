@@ -60,9 +60,12 @@ public class Task_1
 
     static void Change_Matrix(int[,] a)
     {
+        Console.Write("Введіть число для перевірки кратності: ");
+        int k = int.Parse(Console.ReadLine());
+        
         for (int i = 0; i < a.GetLength(0); ++i)
         for (int j = 0; j < a.GetLength(1); ++j)
-            if (a[i, j] > 0)
+            if (a[i, j] < 0 && a[i, j] % k !=0)
                 a[i, j] = -a[i, j];
     }
 
