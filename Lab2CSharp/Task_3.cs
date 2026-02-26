@@ -38,6 +38,39 @@ public class Task_3
                 Console.WriteLine();
             }
         }
+
+        public static void CalculateAvarage(int[,] Matrix, int n)
+        {
+            double sum = 0;
+            int count = 0;
+            
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (i + j < n - 1)
+                    {
+                        if (Matrix[i, j] != 0)
+                        {
+                            sum += Matrix[i, j];
+                            count++;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine("\n--- Результат обчислень ---");
+            if (count > 0)
+            {
+                double average = sum / count;
+                Console.WriteLine($"Знайдено ненульових елементів: {count}");
+                Console.WriteLine($"Середнє арифметичне: {average:F2}");
+            }
+            else
+            {
+                Console.WriteLine("Ненульових елементів над побічною діагоналлю не знайдено.");
+            }
+        }
+        
         
 
         public static void Run()
@@ -46,5 +79,6 @@ public class Task_3
             int[,] Matrix = Input(out n);
 
             Print(Matrix, n);
+            CalculateAvarage(Matrix, n);
         }
     }
