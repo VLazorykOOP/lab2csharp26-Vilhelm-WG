@@ -63,6 +63,7 @@ public class Task_3
             {
                 double average = sum / count;
                 Console.WriteLine($"Знайдено ненульових елементів: {count}");
+                Console.WriteLine($"Сума ненульових елементів: {sum}");
                 Console.WriteLine($"Середнє арифметичне: {average:F2}");
             }
             else
