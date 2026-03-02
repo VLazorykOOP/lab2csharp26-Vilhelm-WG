@@ -7,7 +7,6 @@ public class Task_4
 {
     static int[][] Input()
     {
-        Console.WriteLine("--- Task_3 ---");
         Console.Write("Введіть розмірність масиву: ");
 
         if (!int.TryParse(Console.ReadLine(), out int n) || n <= 0)
