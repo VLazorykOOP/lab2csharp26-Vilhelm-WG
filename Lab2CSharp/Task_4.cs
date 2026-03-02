@@ -5,12 +5,12 @@ namespace Lab2CSharp;
 
 public class Task_4
 {
-    static int[][] Input(int n)
+    static int[][] Input()
     {
         Console.WriteLine("--- Task_3 ---");
         Console.Write("Введіть розмірність масиву: ");
 
-        if (!int.TryParse(Console.ReadLine(), out n) || n <= 0)
+        if (!int.TryParse(Console.ReadLine(), out int n) || n <= 0)
         {
             Console.WriteLine("Помилка: розмірність має бути додатним числом.");
         }
