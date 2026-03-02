@@ -18,14 +18,29 @@ public class Task_4
 
         int[,] a = new int[n, n];
         for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j)
         {
-            Console.Write("a[{0},{1}]= ", i, j);
-            a[i, j] = int.Parse(Console.ReadLine());
+            for (int j = 0; j < n; ++j)
+            {
+                Console.Write("a[{0},{1}]= ", i, j);
+                a[i, j] = int.Parse(Console.ReadLine());
+            }
+            
         }
-
         return a;
-
+        static void Print(int[,] a, int n)
+        {
+            Console.WriteLine("Введена матриця: ");
+            if (a.Length == 0) Console.WriteLine("Масив порожній.");
+            else for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    // Форматуємо вивід, щоб числа стояли рівно (відступ у 4 символи)
+                    Console.Write($"{a[i, j],4} ");
+                }
+                Console.WriteLine();
+            }
+        }
     }
     public static void Run()
     {
