@@ -5,7 +5,7 @@ namespace Lab2CSharp;
 
 public class Task_4
 {
-    static int[] [] Input(int n)
+    static int[][] Input(int n)
     {
         Console.WriteLine("--- Task_3 ---");
         Console.Write("Введіть розмірність масиву: ");
@@ -21,7 +21,7 @@ public class Task_4
             Console.Write($"Введіть кількість елементів у рядку {i} (m{i}): ");
             int m = int.Parse(Console.ReadLine() ?? "0");
             a[i] = new int[m];
-            
+
             for (int j = 0; j < m; ++j)
             {
                 Console.Write($"a[{i}][{j}] = ");
@@ -35,24 +35,27 @@ public class Task_4
     }
 
     static void Print(int[][] a)
+    {
+        Console.WriteLine("Введена матриця: ");
+        if (a.Length == 0) Console.WriteLine("Масив порожній.");
+        foreach (var row in a)
         {
-            Console.WriteLine("Введена матриця: ");
-            if (a.Length == 0) Console.WriteLine("Масив порожній.");
-            foreach (var row in a)
+            foreach (var item in row)
             {
-                foreach (var item in row)
-                {
-                    Console.Write($"{item,4} ");
-                }
-                Console.WriteLine();
+                Console.Write($"{item,4} ");
             }
+
+            Console.WriteLine();
         }
-    
+    }
+
     static int[] CalculateNegativeSums(int[][] a)
     {
         // Знаходимо максимальну довжину рядка, щоб знати кількість стовпців
         int maxCols = 0;
-        foreach (var row in a) if (row.Length > maxCols) maxCols = row.Length;
+        foreach (var row in a)
+            if (row.Length > maxCols)
+                maxCols = row.Length;
 
         int[] sums = new int[maxCols];
 
@@ -67,14 +70,30 @@ public class Task_4
                     currentSum += a[i][j];
                 }
             }
+
             sums[j] = currentSum;
         }
+
         return sums;
     }
 
 
-        public static void Run()
+    public static void Run()
+    {
+        Console.WriteLine("--- Task_4: Східчастий масив ---");
+
+        int[][] array = Input();
+        if (array.Length == 0) return;
+
+        Print(array);
+
+        // Обчислення суми від’ємних елементів по стовпцях
+        int[] columnSums = CalculateNegativeSums(array);
+
+        Console.WriteLine("\nСуми від’ємних елементів у стовпцях:");
+        for (int j = 0; j < columnSums.Length; j++)
         {
-            Console.WriteLine("Вихідний масив:");
+            Console.WriteLine($"Стовпець {j}: {columnSums[j]}");
         }
     }
+}
