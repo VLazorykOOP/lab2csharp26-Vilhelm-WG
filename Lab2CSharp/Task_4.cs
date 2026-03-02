@@ -5,7 +5,7 @@ namespace Lab2CSharp;
 
 public class Task_4
 {
-    static int[,] Input(out int n)
+    static int[] [] Input(int n)
     {
         Console.WriteLine("--- Task_3 ---");
         Console.Write("Введіть розмірність масиву: ");
@@ -13,37 +13,45 @@ public class Task_4
         if (!int.TryParse(Console.ReadLine(), out n) || n <= 0)
         {
             Console.WriteLine("Помилка: розмірність має бути додатним числом.");
-            return new int[0, 0];
         }
 
-        int[,] a = new int[n, n];
-        for (int i = 0; i < n; ++i)
+        int[][] a = new int[n][];
+        for (int i = 0; i < n; i++)
         {
-            for (int j = 0; j < n; ++j)
-            {
-                Console.Write("a[{0},{1}]= ", i, j);
-                a[i, j] = int.Parse(Console.ReadLine());
-            }
+            Console.Write($"Введіть кількість елементів у рядку {i} (m{i}): ");
+            int m = int.Parse(Console.ReadLine() ?? "0");
+            a[i] = new int[m];
             
+            for (int j = 0; j < m; ++j)
+            {
+                Console.Write($"a[{i}][{j}] = ");
+                a[i][j] = int.Parse(Console.ReadLine() ?? "0");
+            }
+
         }
+
+
         return a;
-        static void Print(int[,] a, int n)
+    }
+
+    static void Print(int[][] a)
         {
             Console.WriteLine("Введена матриця: ");
             if (a.Length == 0) Console.WriteLine("Масив порожній.");
-            else for (int i = 0; i < n; i++)
+            foreach (var row in a)
             {
-                for (int j = 0; j < n; j++)
+                foreach (var item in row)
                 {
-                    // Форматуємо вивід, щоб числа стояли рівно (відступ у 4 символи)
-                    Console.Write($"{a[i, j],4} ");
+                    Console.Write($"{item,4} ");
                 }
                 Console.WriteLine();
             }
         }
+    
+
+
+        public static void Run()
+        {
+            Console.WriteLine("Вихідний масив:");
+        }
     }
-    public static void Run()
-    {
-        Console.WriteLine("Вихідний масив:");
-    }
-}
