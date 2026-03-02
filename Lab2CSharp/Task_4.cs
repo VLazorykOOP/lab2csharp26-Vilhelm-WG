@@ -48,6 +48,29 @@ public class Task_4
             }
         }
     
+    static int[] CalculateNegativeSums(int[][] a)
+    {
+        // Знаходимо максимальну довжину рядка, щоб знати кількість стовпців
+        int maxCols = 0;
+        foreach (var row in a) if (row.Length > maxCols) maxCols = row.Length;
+
+        int[] sums = new int[maxCols];
+
+        for (int j = 0; j < maxCols; j++) // Йдемо по стовпцях
+        {
+            int currentSum = 0;
+            for (int i = 0; i < a.Length; i++) // Йдемо по рядках
+            {
+                // Перевіряємо, чи існує такий стовпець у поточному рядку
+                if (j < a[i].Length && a[i][j] < 0)
+                {
+                    currentSum += a[i][j];
+                }
+            }
+            sums[j] = currentSum;
+        }
+        return sums;
+    }
 
 
         public static void Run()
