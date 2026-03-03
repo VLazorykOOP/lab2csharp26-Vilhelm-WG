@@ -1,4 +1,5 @@
 namespace Lab2CSharp;
+using System;
 
 public class Task_1
 {
