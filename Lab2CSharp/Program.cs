@@ -1,5 +1,6 @@
-﻿namespace Lab2CSharp
-{
+﻿namespace Lab2CSharp;
+using System;
+
     internal class Program
     {
         static void Main(string[] args)
@@ -50,4 +51,4 @@
             }
         }
     }
-}
+
