@@ -9,7 +9,6 @@ using System;
             {
                 Console.WriteLine();
                 Console.WriteLine("Lab 1 - меню");
-                Console.WriteLine("5 - Task 5");
                 Console.WriteLine("4 - Task 4");
                 Console.WriteLine("3 - Task 3");
                 Console.WriteLine("2 - Task 2");
